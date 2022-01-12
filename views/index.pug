@@ -1,0 +1,18 @@
+extends base-layout
+
+block content
+  .content
+    .welcome-container
+      h1 welcome to members_only 
+      .login-links
+        a(href="/users/login") log in 
+        a(href="/users/register") register
+
+    .message-container 
+          each message in messages 
+              .message-item 
+                  p #{message.title}
+                  p #{message.content}
+
+
+

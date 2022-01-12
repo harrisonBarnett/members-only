@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  header 
+    nav.nav-bar-main
+        p members_only 
+        a(href="/users/logout") log out
+  body
+    block content

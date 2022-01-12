@@ -1,0 +1,19 @@
+extends base-layout 
+
+block content 
+    if errors
+        each error in errors 
+            p #{error.msg}
+
+    form(action="/users/login" method="POST").auth-form
+        p log in
+        label(for="email") email 
+            input(type="email" name="email" id="email" placeholder="email") 
+
+        label(for="password") password 
+            input(type="password" name="password" id="password" placeholder="password")
+
+        button(type="submit") log in
+
+        p don't have an account?
+        a(href="/users/register") register now

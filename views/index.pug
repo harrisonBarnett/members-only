@@ -3,16 +3,19 @@ extends base-layout
 block content
   .content
     .welcome-container
-      h1 welcome to members_only 
+      h1 welcome to the club
       .login-links
         a(href="/users/login") log in 
+        p |
         a(href="/users/register") register
 
     .message-container 
           each message in messages 
               .message-item 
-                  p #{message.title}
-                  p #{message.content}
+                .message-meta
+                  h3.message-title #{message.title}
+                  p.message-date #{new Date(message.date_modified).toDateString()}
+                p.message-content #{message.content}
 
 
 

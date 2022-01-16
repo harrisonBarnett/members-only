@@ -2,13 +2,10 @@ extends main-layout
 
 block content
     .content
-        h1 welcome to your dash, #{user.username}
+        h1 talk your shit, #{user.username}
         form.post-form(action="/" method="POST") 
             h3 submit a new message
-            label(for="title") title 
             input(type="text" name="title" id="title" placeholder="add a title") 
-
-            label(for="content") content 
             textarea(name="content" id="content" placeholder="what's on your mind?")
 
             button(type="submit") submit 
@@ -16,14 +13,16 @@ block content
         .message-container 
             each message in messages 
                 .message-item 
-                    p #{message.title}
-                    p #{message.content}
-                    p posted by: #{message.author}
-
-                    if user.isAdmin
-                        form(action=`/${message._id}?_method=DELETE` method="POST").message-delete-btn
-                            input(type="hidden" name="_method" value="DELETE")
-                            button(type="submit")
-                                img(src="./images/delete_icon.svg", alt="delete icon")
+                    .message-meta
+                        h3.message-title #{message.title}
+                        p.message-date #{new Date(message.date_modified).toDateString()}
+                    p.message-content #{message.content}
+                    .message-footer
+                        p.posted-by posted by: #{message.author}
+                        if user.isAdmin
+                            form(action=`/${message._id}?_method=DELETE` method="POST").message-delete-btn
+                                input(type="hidden" name="_method" value="DELETE")
+                                button(type="submit")
+                                    img(src="./images/delete_icon.svg", alt="delete icon")
 
             

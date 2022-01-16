@@ -95,6 +95,15 @@ color: var(--text-color);
 .auth-form label, .auth-form p, .auth-form a {
   color: var(--text-color);
 }
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+.error-msg {
+  padding: .5em;
+  color: var(--color-primary-500);
+}
 .post-form {
   position: absolute;
   top: 1rem;

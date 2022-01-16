@@ -2,8 +2,9 @@ extends base-layout
 
 block content 
     if errors
-        each error in errors 
-            p #{error.msg}
+        .error-container
+            each error in errors 
+                p.error-msg #{error.msg}
 
     form(action="/users/register" method="POST").auth-form
         h3 register an account
